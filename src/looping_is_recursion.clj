@@ -61,8 +61,22 @@
       (recur (rest remaining) (toggle new-set (first remaining)))
       )))
 
+
 (defn fast-fibo [n]
-  ":(")
+  (if (= 0 n)
+      0
+      (if (= 1 n)
+        1
+        (loop [i 2
+               Fnminusone 1
+               Fnminustwo 0]
+
+            (if (= i n)
+              (+ Fnminusone Fnminustwo)
+              (recur (inc i) (+ Fnminusone Fnminustwo) Fnminusone)
+              )))
+    ))
+
 
 (defn cut-at-repetition [a-seq]
   [":("])
