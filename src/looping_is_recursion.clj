@@ -12,10 +12,18 @@
 
 
 (defn last-element [a-seq]
-  ":(")
+    (if (empty? (rest a-seq))
+      (first a-seq)
+      (recur (rest a-seq))
+      ))
 
 (defn seq= [seq1 seq2]
-  ":(")
+  (if (and (empty? seq1) (empty? seq2))
+    true
+    (if (and (= (first seq1) (first seq2)) (not (nil? (first seq1))))
+      (recur (rest seq1) (rest seq2))
+      false
+      )))
 
 (defn find-first-index [pred a-seq]
   ":(")
