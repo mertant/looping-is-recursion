@@ -46,8 +46,20 @@
       (recur (rest remaining) (+ sum (first remaining)) (inc n))
       )))
 
+
+(defn toggle [a-set elem]
+  (if (contains? a-set elem)
+    (disj a-set elem)
+    (conj a-set elem)))
+
+
 (defn parity [a-seq]
-  ":(")
+  (loop [remaining a-seq
+         new-set #{}]
+    (if (empty? remaining)
+      new-set
+      (recur (rest remaining) (toggle new-set (first remaining)))
+      )))
 
 (defn fast-fibo [n]
   ":(")
