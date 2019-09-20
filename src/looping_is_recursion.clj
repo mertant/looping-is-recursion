@@ -3,7 +3,7 @@
 (defn power-helper [base exp acc]
   (if (zero? exp)
     acc
-    (recur exp (dec exp) (* base acc))
+    (recur base (dec exp) (* base acc))
     ))
 
 (defn power [base exp]
