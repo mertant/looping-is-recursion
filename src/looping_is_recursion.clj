@@ -38,7 +38,13 @@
   )
 
 (defn avg [a-seq]
-  -1)
+  (loop [remaining a-seq
+         sum 0
+         n 0]
+    (if (empty? remaining)
+      (/ sum n)
+      (recur (rest remaining) (+ sum (first remaining)) (inc n))
+      )))
 
 (defn parity [a-seq]
   ":(")
